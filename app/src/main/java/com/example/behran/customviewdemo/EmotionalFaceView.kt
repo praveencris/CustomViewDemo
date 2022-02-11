@@ -2,6 +2,8 @@ package com.example.behran.customviewdemo
 
 import android.content.Context
 import android.graphics.*
+import android.os.Bundle
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.View
 
@@ -144,6 +146,28 @@ class EmotionalFaceView(context: Context, attrs: AttributeSet) : View(context, a
 
         const val HAPPY = 0L
         const val SAD = 1L
+    }
+
+    override fun onSaveInstanceState(): Parcelable? {
+        // 1
+        val bundle = Bundle()
+        // 2
+        bundle.putLong("happinessState", happinessState)
+        // 3
+        bundle.putParcelable("superState", super.onSaveInstanceState())
+        return bundle
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        // 4
+        var viewState = state
+        if (viewState is Bundle) {
+            // 5
+            happinessState = viewState.getLong("happinessState", HAPPY)
+            // 6
+            viewState = viewState.getParcelable("superState")
+        }
+        super.onRestoreInstanceState(viewState)
     }
 
 }
