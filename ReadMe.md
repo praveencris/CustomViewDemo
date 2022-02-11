@@ -16,3 +16,7 @@ A sample app for creating emoji's using custom view
 
 ![App Screenshot](https://github.com/praveencris/CustomViewDemo/blob/master/screenshots/Screenshot%202022-02-11%20054710.png)
 
+
+## References
+
+- [CustomViewDemo](https://www.raywenderlich.com/142-android-custom-view-tutorial#toc-anchor-013)
